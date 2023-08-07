@@ -1,0 +1,26 @@
+vrrp_script check_ftl {
+    script "pgrep pihole-FTL > /dev/null"
+    interval 1
+    weight -10
+}
+
+vrrp_instance pihole {
+    state {{ pihole_keepalive_state }}
+    interface eth0
+    virtual_router_id 50
+    priority {{ pihole_keepalive_priority }}
+    advert_int 1
+
+    authentication {
+        auth_type PASS
+        auth_pass {{ pihole_keepalive_auth_pass }}
+    }
+
+    virtual_ipaddress {
+        {{ pihole_keepalive_virtual_ipaddress }}
+    }
+
+    track_script {
+        check_ftl
+    }
+}

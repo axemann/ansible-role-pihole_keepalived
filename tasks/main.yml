@@ -1,0 +1,17 @@
+---
+# tasks file for pihole-keepalived
+
+- name: Install packages
+  ansible.builtin.apt:
+    pkg:
+    - keepalived
+    - libipset13
+
+- name: Copy keepalived.conf to /etc/keepalived/
+  ansible.builtin.template:
+    src: keepalived.conf.j2
+    dest: /etc/keepalived/keepalived.conf
+    owner: root
+    mode: 0644
+  notify:
+    - Restart keepalived

@@ -1,0 +1,19 @@
+galaxy_info:
+  role_name: pihole_keepalived
+  author: tomhoover
+  description: Use one virtual IP for multiple pi-hole servers.
+  license: license (MIT)
+  min_ansible_version: 2.1
+  platforms:
+    - name: Debian
+      versions:
+        - bookworm
+        - bullseye
+        - buster
+  galaxy_tags:
+    - dns
+    - keepalived
+    - pihole
+    - vip
+
+dependencies: []
