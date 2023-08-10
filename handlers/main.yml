@@ -1,5 +1,5 @@
 ---
-# handlers file for pihole-keepalived
+# handlers file for pihole_keepalived
 
 - name: Restart keepalived
   service:

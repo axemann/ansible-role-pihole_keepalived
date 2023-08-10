@@ -5,19 +5,19 @@ vrrp_script check_ftl {
 }
 
 vrrp_instance pihole {
-    state {{ pihole_keepalive_state }}
+    state {{ pihole_keepalived_state }}
     interface eth0
     virtual_router_id 50
-    priority {{ pihole_keepalive_priority }}
+    priority {{ pihole_keepalived_priority }}
     advert_int 1
 
     authentication {
         auth_type PASS
-        auth_pass {{ pihole_keepalive_auth_pass }}
+        auth_pass {{ pihole_keepalived_auth_pass }}
     }
 
     virtual_ipaddress {
-        {{ pihole_keepalive_virtual_ipaddress }}
+        {{ pihole_keepalived_virtual_ipaddress }}
     }
 
     track_script {

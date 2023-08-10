@@ -1,5 +1,5 @@
 ---
-# defaults file for pihole-keepalived
+# defaults file for pihole_keepalived
 
-pihole_keepalive_auth_pass: ChangeMe                   # Set to your desired password (max 8 characters). Must be identical for all pihole servers.
-pihole_keepalive_virtual_ipaddress: 10.10.10.50/24     # Set to your desired VIP. Must be identical for all pihole servers.
+pihole_keepalived_auth_pass: ChangeMe                   # Set to your desired password (max 8 characters). Must be identical for all pihole servers.
+pihole_keepalived_virtual_ipaddress: 10.10.10.50/24     # Set to your desired VIP. Must be identical for all pihole servers.

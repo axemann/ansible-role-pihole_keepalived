@@ -1,5 +1,5 @@
 ---
-# tasks file for pihole-keepalived
+# tasks file for pihole_keepalived
 
 - name: Install packages
   ansible.builtin.apt:

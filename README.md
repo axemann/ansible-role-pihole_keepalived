@@ -1,4 +1,4 @@
-Ansible Role: pihole-keepalived
+Ansible Role: pihole_keepalived
 =================
 
 High availability (HA) pihole, using keepalived for failover.
@@ -35,29 +35,29 @@ Role Variables
 --------------
 
 ```
-##### defaults for pihole-keepalived (set via defaults/main.yml):
-pihole_keepalive_auth_pass: ChangeMe                 # Set to your desired password (max 8 characters). Must be identical for all pihole servers.
-pihole_keepalive_virtual_ipaddress: 10.10.10.50/24   # Set to your desired VIP. Must be identical for all pihole servers.
+##### defaults for pihole_keepalived (set via defaults/main.yml):
+pihole_keepalived_auth_pass: ChangeMe                 # Set to your desired password (max 8 characters). Must be identical for all pihole servers.
+pihole_keepalived_virtual_ipaddress: 10.10.10.50/24   # Set to your desired VIP. Must be identical for all pihole servers.
 ```
 
 ### To override, you may set the following variables via group_vars/host_vars, playbook, CLI, etc:
 
 ```
 ##### example group_vars/pihole_servers:
-pihole_keepalive_auth_pass: ChangeMe                 # Set to your desired password (max 8 characters). Must be identical for all pihole servers.
-pihole_keepalive_virtual_ipaddress: 10.10.10.50/24   # Set to your desired VIP. Must be identical for all pihole servers.
+pihole_keepalived_auth_pass: ChangeMe                 # Set to your desired password (max 8 characters). Must be identical for all pihole servers.
+pihole_keepalived_virtual_ipaddress: 10.10.10.50/24   # Set to your desired VIP. Must be identical for all pihole servers.
 
 ##### example host_vars/pihole1:
-pihole_keepalive_state: MASTER                       # Set each pihole's initial state to either MASTER or BACKUP.
-pihole_keepalive_priority: 255                       # Must be unique for each pihole server (MASTER should be greater than all BACKUPs).
+pihole_keepalived_state: MASTER                       # Set each pihole's initial state to either MASTER or BACKUP.
+pihole_keepalived_priority: 255                       # Must be unique for each pihole server (MASTER should be greater than all BACKUPs).
 
 ##### example host_vars/pihole2:
-pihole_keepalive_state: BACKUP                       # Set each pihole's initial state to either MASTER or BACKUP.
-pihole_keepalive_priority: 250                       # Must be unique for each pihole server (MASTER should be greater than all BACKUPs).
+pihole_keepalived_state: BACKUP                       # Set each pihole's initial state to either MASTER or BACKUP.
+pihole_keepalived_priority: 250                       # Must be unique for each pihole server (MASTER should be greater than all BACKUPs).
 
 ##### example host_vars/pihole3:
-pihole_keepalive_state: BACKUP                       # Set each pihole's initial state to either MASTER or BACKUP.
-pihole_keepalive_priority: 245                       # Must be unique for each pihole server (MASTER should be greater than all BACKUPs).
+pihole_keepalived_state: BACKUP                       # Set each pihole's initial state to either MASTER or BACKUP.
+pihole_keepalived_priority: 245                       # Must be unique for each pihole server (MASTER should be greater than all BACKUPs).
 ```
 
 Dependencies
@@ -77,7 +77,7 @@ Example Playbook
   serial: 1
 
   roles:
-    - tomhoover.pihole-keepalived
+    - tomhoover.pihole_keepalived
 ```
 
 License
