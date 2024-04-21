@@ -3,7 +3,7 @@ galaxy_info:
   author: tomhoover
   description: Use one virtual IP for multiple pi-hole servers.
   license: license (MIT)
-  min_ansible_version: 2.1
+  min_ansible_version: '2.1'
   platforms:
     - name: Debian
       versions:
