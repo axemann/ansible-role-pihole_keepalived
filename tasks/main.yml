@@ -35,7 +35,10 @@
     pkg:
       - keepalived
       - libipset11
-  when: ( pihole_installed or docker_pihole_installed ) and ansible_distribution == "Debian" and ansible_distribution_release == "buster"
+  when:
+    - ( pihole_installed or docker_pihole_installed )
+    - ansible_distribution == "Debian"
+    - ansible_distribution_release == "buster"
 
 - name: Install packages
   ansible.builtin.apt:
@@ -55,4 +58,5 @@
     mode: '0644'
   notify:
     - Restart keepalived
-  when: pihole_installed or docker_pihole_installed
+  when:
+    - ( pihole_installed or docker_pihole_installed )
