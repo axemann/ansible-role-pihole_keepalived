@@ -10,10 +10,9 @@
     pihole_installed: '{{ p.stat.exists | default(false) }}'
 
 - name: Is pihole official docker image installed?
-  ansible.builtin.shell: "docker ps | grep pihole/pihole | sed -e 's/ .*//'"
-  pipefail: true
+  ansible.builtin.shell: "set -o pipefail && docker ps | grep pihole/pihole | sed -e 's/ .*//'"
   register: d
-  when: not pihole_installed
+  changed_when: p.rc != 0
 - name: Check if pihole container is running
   ansible.builtin.command: "docker exec {{ d.stdout }} pihole"
   register: p
